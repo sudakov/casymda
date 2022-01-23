@@ -22,11 +22,8 @@ class ScaledCanvasTk(ScaledCanvas):
     def load_image_file(self, path: str):
         """takes file path and returns loaded image file reference"""
 
-        image = (
-            Image.open(path).convert("RGBA")
-            if platform.system() != "Darwin"
-            else Image.open(path).convert("RGB")
-        )
+        image = Image.open(path).convert("RGBA")
+
         width, height = self._scale_coords(image.size)
 
         resized_image = image.resize((width, height), Image.ANTIALIAS)
