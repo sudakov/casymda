@@ -9,7 +9,7 @@ class Entity:
 
     def __init__(self, env: Environment, name: str):
         self.env = env
-        self.name = name
+        self.name = f"деталь_{name.split('_')[1]}"
         self.current_process: Optional[Process] = None
 
         # requested resources, info needed for release
